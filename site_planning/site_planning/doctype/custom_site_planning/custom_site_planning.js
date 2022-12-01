@@ -8,9 +8,9 @@ frappe.ui.form.on('Custom Site Planning', {
 			frm.add_custom_button(__('Create Delivery Note'), function() {
 				if (frm.doc.site_planning){				
 					$.each(frm.doc.site_planning, function(idx, item){
-					console.log(idx, item.site_name)	
+					// add the frappe.call
 					frappe.call({
-						method : "site_planning.site_planning.doctype.custom_site_planning.custom_site_planning.delivery_note",						 	
+						method : "site_planning.site_planning.doctype.custom_site_planning.custom_site_planning.delivery_note", 						 	
 						args : {
 							'site_name' : item
 						}
@@ -57,9 +57,7 @@ frappe.ui.form.on('Custom Site Planning Item', {
 							if (item.type == "Subji") {
 								frappe.model.set_value(row.doctype, row.name, 'subji', item.no_of_tiffin)
 							}
-						});
-					console.log('r.message', r.message)
-						
+						});						
 					}
 				} //callback end 
 			})

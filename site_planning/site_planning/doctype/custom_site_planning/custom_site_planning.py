@@ -15,19 +15,14 @@ def get_site_details(site_name, date):
 	#fetch date and site_name from custom site details and custom tiffin details 
 	if date and site_name:
 		data = frappe.db.sql("""select * from `tabCustom Site Details` sd join `tabCustom Tiffin Details` td on td.parent = sd.name where sd.date = '{0}' and sd.name = '{1}' """.format(date, site_name), as_dict = 1, debug = 1)
-		print("data======", data)
-
 		return data		
 
 @frappe.whitelist()
 def delivery_note(site_name):
 
 	result = json.loads(site_name)
-	print("result-----",result)
-	print("site_name======",result['site_name'])
 	customer_name = frappe.db.get_value("Custom Site Details", result['site_name'], "customer")
 	site_data = frappe.get_doc("Custom Site Details", result['site_name'])
-	print("tiffin_details+++++++++",site_data.tiffin_details)
 	qty = result['labour_count']
 	a = frappe.new_doc("Delivery Note")
 	
