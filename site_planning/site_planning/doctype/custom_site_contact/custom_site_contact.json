@@ -1,0 +1,45 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2022-11-29 20:36:44.021860",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "contact_person",
+  "person_name",
+  "contact_no"
+ ],
+ "fields": [
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Select",
+   "label": "Contact Person",
+   "options": "\nSupervisor\nSecurity\nSafety Officer\nAdmin/HR"
+  },
+  {
+   "fieldname": "person_name",
+   "fieldtype": "Data",
+   "label": "Person Name"
+  },
+  {
+   "fieldname": "contact_no",
+   "fieldtype": "Data",
+   "label": "Contact No"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-11-29 20:59:20.052036",
+ "modified_by": "Administrator",
+ "module": "Site Planning",
+ "name": "Custom Site Contact",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

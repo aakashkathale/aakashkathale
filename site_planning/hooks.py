@@ -10,6 +10,8 @@ app_license = "MIT"
 # Includes in <head>
 # ------------------
 
+fixtures = ['Custom Field', 'Property Setter', 'Print Format', 'Role', 'Letter Head', 'Print Style', 'Print Settings', 'Email Template','Client Script']
+
 # include js, css files in header of desk.html
 # app_include_css = "/assets/site_planning/css/site_planning.css"
 # app_include_js = "/assets/site_planning/js/site_planning.js"

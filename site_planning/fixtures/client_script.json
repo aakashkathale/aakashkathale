@@ -1,0 +1,35 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Sales Order",
+  "enabled": 1,
+  "modified": "2022-11-15 11:27:44.953956",
+  "module": null,
+  "name": "Sales Order",
+  "script": "frappe.ui.form.on(\"Sales Order\", \"validate\", function(frm, cdt, cdn) {\n\tvar total_tiffin_dispatch = 0;\n\t$.each(frm.doc.tiffin_details || [], function(i, d) {\n    total_tiffin_dispatch += flt(d.no_of_tiffin);\n    console.log(\"hello\");\n});\nfrm.set_value(\"total_tiffin_dispatch\", total_tiffin_dispatch);\n});\n\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Delivery Note",
+  "enabled": 1,
+  "modified": "2022-11-21 13:51:24.497464",
+  "module": null,
+  "name": "Delivery Note",
+  "script": "frappe.ui.form.on('Delivery Note', \"validate\", function(frm, cdt, cdn) {\n\tvar total_tiffin_dispatch = 0;\n\t$.each(frm.doc.tiffin_details || [], function(i, d) {\n    total_tiffin_dispatch += flt(d.no_of_tiffin);\n    //console.log(\"hello\");\n});\nfrm.set_value(\"total_tiffin_dispatch\", total_tiffin_dispatch);\n});\n\t\n\t\nfrappe.ui.form.on(\"Delivery Note\", \"before_submit\", function (frm, cdt, cdn) {\n    \n    var d = locals[cdt][cdn];\n    //var pending_to_collect = 0;\n    d.pending_to_collect = d.total_tiffin_dispatch - d.total_collected_tiffin;\n    //console.log(\"message\");\n});\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Site Planning",
+  "enabled": 0,
+  "modified": "2022-11-22 15:49:58.367435",
+  "module": null,
+  "name": "Tiffin Details",
+  "script": "frappe.ui.form.on('Site Planning Item', {\r\n    site_name: function(frm, cdt, cdn) {\r\n        var row = locals[cdt][cdn];\r\n\t\tif (row.site_name) {\r\n\t\t\tfrappe.model.with_doc(\"Site Planning\", row.site_name, function() {\r\n\t\t\t\tvar doc = frappe.model.get_doc(\"Site Planning\", row.site_name);\r\n\t\t\t\t$.each(doc.site_planning_item || [], function(i, r) {\r\n\t\t\t\t\tif(r.no_of_tiffin == frm.doc.TARGET_PARENT_DOCTYPE_FIELD) {\r\n\t\t\t\t\t\tvar df = frappe.meta.get_docfield(\"Site Planning Item\",\"TARGET_CHILD_TABLE_CUSTOM_FIELD\", frm.doc.name);\r\n\t\t\t\t\t\tdf.options += \"\\n\" + r.TARGET_CHILD_TABLE_CUSTOM_FIELD;\r\n\t\t\t\t\t}\r\n\t\t\t\t})\r\n\t\t\t});\r\n\t\t\tfrm.refresh_field(\"Site Planning Item\")\r\n\t\t}\r\n\t}\r\n});",
+  "view": "Form"
+ }
+]

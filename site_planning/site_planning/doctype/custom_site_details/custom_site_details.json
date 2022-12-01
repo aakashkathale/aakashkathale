@@ -1,0 +1,320 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "field:site_name",
+ "creation": "2022-11-29 20:34:56.890364",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "project_name",
+  "letter_no",
+  "site_name",
+  "date",
+  "labour_count",
+  "dy_commissioner",
+  "column_break_3",
+  "project",
+  "region",
+  "ward",
+  "ward_no",
+  "ass_commissioner_labor",
+  "gov_labor_officer",
+  "section_break_9",
+  "table_10",
+  "address_and_contact_section",
+  "address_line_1",
+  "address_line_2",
+  "citytown",
+  "column_break_6",
+  "state",
+  "country",
+  "customer",
+  "section_break_17",
+  "tiffin_details",
+  "section_break_19",
+  "labour_information_section",
+  "labour_info",
+  "section_break_24",
+  "approval_letter",
+  "demand_letter",
+  "increase_decrease_letter",
+  "revised_date",
+  "column_break_28",
+  "approval_date",
+  "order_date",
+  "start_date",
+  "closing_date",
+  "section_break_39",
+  "driver_name",
+  "vehicle_no"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Site Code"
+  },
+  {
+   "fetch_from": "project.project_name",
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "label": "Project Name"
+  },
+  {
+   "fieldname": "letter_no",
+   "fieldtype": "Data",
+   "label": "Supply Order No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "site_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Site Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "labour_count",
+   "fieldtype": "Int",
+   "label": "Labour Count",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dy_commissioner",
+   "fieldtype": "Data",
+   "label": "Dy Commissioner"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_standard_filter": 1,
+   "label": "Region",
+   "options": "\nEast\nWest\nSouth\nNorth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ward",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_standard_filter": 1,
+   "label": "Ward",
+   "options": "\nA\nB\nC\nD\nE\nF",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ward_no",
+   "fieldtype": "Data",
+   "label": "Ward No",
+   "unique": 1
+  },
+  {
+   "fieldname": "ass_commissioner_labor",
+   "fieldtype": "Data",
+   "label": "Ass Commissioner Labor"
+  },
+  {
+   "fieldname": "gov_labor_officer",
+   "fieldtype": "Data",
+   "label": "Gov Labor Officer"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table_10",
+   "fieldtype": "Table",
+   "options": "Site Contact"
+  },
+  {
+   "fieldname": "address_and_contact_section",
+   "fieldtype": "Section Break",
+   "label": "Address and Contact"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "citytown",
+   "fieldtype": "Data",
+   "label": "City/Town",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tiffin_details",
+   "fieldtype": "Table",
+   "label": "Tiffin Details",
+   "options": "Custom Tiffin Details"
+  },
+  {
+   "fieldname": "section_break_19",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "labour_information_section",
+   "fieldtype": "Section Break",
+   "label": "Labour Information"
+  },
+  {
+   "fieldname": "labour_info",
+   "fieldtype": "Table",
+   "label": "Labour Info",
+   "options": "Labour"
+  },
+  {
+   "fieldname": "section_break_24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "approval_letter",
+   "fieldtype": "Attach",
+   "label": "Approval Letter"
+  },
+  {
+   "fieldname": "demand_letter",
+   "fieldtype": "Attach",
+   "label": "Demand Letter"
+  },
+  {
+   "fieldname": "increase_decrease_letter",
+   "fieldtype": "Attach",
+   "label": "Increase Decrease Letter"
+  },
+  {
+   "fieldname": "revised_date",
+   "fieldtype": "Date",
+   "label": "Revised Date"
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date"
+  },
+  {
+   "fieldname": "order_date",
+   "fieldtype": "Date",
+   "label": "Order Date"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "closing_date",
+   "fieldtype": "Date",
+   "label": "Closing Date"
+  },
+  {
+   "fieldname": "section_break_39",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "driver_name",
+   "fieldtype": "Link",
+   "label": "Driver Name",
+   "options": "Driver"
+  },
+  {
+   "fieldname": "vehicle_no",
+   "fieldtype": "Data",
+   "label": "Vehicle No"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-11-30 19:13:51.078962",
+ "modified_by": "Administrator",
+ "module": "Site Planning",
+ "name": "Custom Site Details",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Central Kitchen",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "site_name"
+}
