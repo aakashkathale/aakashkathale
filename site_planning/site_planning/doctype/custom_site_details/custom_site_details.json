@@ -140,7 +140,7 @@
   {
    "fieldname": "table_10",
    "fieldtype": "Table",
-   "options": "Site Contact"
+   "options": "Custom Site Contact"
   },
   {
    "fieldname": "address_and_contact_section",
@@ -280,7 +280,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-11-30 19:13:51.078962",
+ "modified": "2022-12-01 16:28:41.040450",
  "modified_by": "Administrator",
  "module": "Site Planning",
  "name": "Custom Site Details",
