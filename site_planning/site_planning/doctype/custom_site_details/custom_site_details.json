@@ -182,7 +182,8 @@
    "fieldname": "customer",
    "fieldtype": "Link",
    "label": "Customer",
-   "options": "Customer"
+   "options": "Customer",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_17",
@@ -275,12 +276,13 @@
   {
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date"
+   "label": "Date",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-12-01 16:28:41.040450",
+ "modified": "2022-12-02 10:44:28.978677",
  "modified_by": "Administrator",
  "module": "Site Planning",
  "name": "Custom Site Details",

@@ -1,6 +1,5 @@
 # Copyright (c) 2022, indictrans and contributors
 # For license information, please see license.txt
-
 import frappe
 import json
 from frappe.utils import nowdate, nowtime
@@ -18,7 +17,7 @@ def get_site_details(site_name, date):
 		return data		
 
 @frappe.whitelist()
-def delivery_note(site_name):
+def delivery_note(site_name, custom_site_planning):
 
 	result = json.loads(site_name)
 	customer_name = frappe.db.get_value("Custom Site Details", result['site_name'], "customer")
@@ -34,6 +33,8 @@ def delivery_note(site_name):
 
 	#fetch the customer_name
 	a.customer = customer_name
+
+	a.custom_site_planning = custom_site_planning
 
 	#fetch the site_name
 	a.site_name = result['site_name']
@@ -54,6 +55,13 @@ def delivery_note(site_name):
 
 	a.save()
 
-	frappe.msgprint('Delivery Note Created')
+	# frappe.msgprint('Delivery Note Created')
+	frappe.msgprint(f'''Delivery Note Created
+                <a href = '/app/delivery-note/{a.name}'><b>{a.name}</b></a>''')	
 	
-	
+
+
+@frappe.whitelist()
+def get_dn(site_planning):
+	dn = frappe.db.get_value('Delivery Note', {'custom_site_planning' : site_planning }, 'name')
+	return dn

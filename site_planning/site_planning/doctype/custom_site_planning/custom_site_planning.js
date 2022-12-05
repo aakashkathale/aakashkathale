@@ -2,25 +2,51 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Custom Site Planning', {
-	refresh : function(frm,cdt,cdn){
-		if (frm.doc.docstatus == 1){	
-			// add custom button 		
-			frm.add_custom_button(__('Create Delivery Note'), function() {
-				if (frm.doc.site_planning){				
-					$.each(frm.doc.site_planning, function(idx, item){
-					// add the frappe.call
-					frappe.call({
-						method : "site_planning.site_planning.doctype.custom_site_planning.custom_site_planning.delivery_note", 						 	
-						args : {
-							'site_name' : item
-						}
-					})			
-				})
-			}
-			}, __('Action'));		
-		}
+	refresh : function(frm){
+		add_create_delivery_note_button(frm);
 	}
 });
+
+function add_create_delivery_note_button(frm){
+	if (frm.doc.docstatus == 1){	
+		// add custom button 
+		frappe.call({
+			method : "site_planning.site_planning.doctype.custom_site_planning.custom_site_planning.get_dn",
+			args : {
+				site_planning : frm.doc.name
+			},
+			callback : function(r){
+				if(!r.message){
+					console.log('dn not present')
+
+					frm.add_custom_button(__('Create Delivery Note'), function() {
+						if (frm.doc.site_planning){				
+							$.each(frm.doc.site_planning, function(idx, item){
+							// add the frappe.call
+							frappe.call({
+								method : "site_planning.site_planning.doctype.custom_site_planning.custom_site_planning.delivery_note", 						 	
+								args : {																																																								
+									'site_name' : item,
+									'custom_site_planning' : frm.doc.name
+								},	
+								callback : function(r) {
+									frm.reload_doc()
+								}								
+							})	
+						})
+					}			 
+					}, __('Action'))
+				}
+				else {
+					frm.remove_custom_button('Create Delivery Note');
+					// $('.dropdown-item').prop('hidden', true);
+				}
+			}
+
+
+		})				
+}
+}
 
 frappe.ui.form.on('Custom Site Planning Item', {
 	site_name: function(frm,cdt,cdn){
@@ -65,6 +91,7 @@ frappe.ui.form.on('Custom Site Planning Item', {
 		
 	},  
 })
+
 
 
 
